@@ -1,4 +1,4 @@
-# .NET Break
+# .NET Craft
 
 Its a repository for drop-in sessions; where we are learning to navigate things the .NET way
 
