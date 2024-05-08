@@ -1,0 +1,6 @@
+@TheVueApp.Server_HostAddress = http://localhost:5093
+
+GET {{TheVueApp.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
