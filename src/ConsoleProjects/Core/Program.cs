@@ -4,10 +4,9 @@ using Core;                     // explicit using
 using static System.Console;    // using static methods
 
 Person? p = NullableHelper.MayBePerson();
-//p!.LastName   null forgiving
-// check for null
-if (null != p)
-    WriteLine(p.FirstName);
+
+if (null != p)              // check for null OR if you know this is not null use null forgiving
+    WriteLine(p.FirstName); //p!.LastName   null forgiving
 
 WriteLine("Finished, press Enter to exit");
 ReadLine();
