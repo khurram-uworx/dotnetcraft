@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "ConsoleProjects\Cor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework", "ConsoleProjects\Framework\Framework.csproj", "{479E637B-7F96-4907-9D39-467DD27CF6A6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UWorx.DotNet", "UWorx.DotNet\UWorx.DotNet.csproj", "{0D2F6EDA-36A8-42A6-AE49-5A0D877AD188}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{479E637B-7F96-4907-9D39-467DD27CF6A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{479E637B-7F96-4907-9D39-467DD27CF6A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{479E637B-7F96-4907-9D39-467DD27CF6A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D2F6EDA-36A8-42A6-AE49-5A0D877AD188}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D2F6EDA-36A8-42A6-AE49-5A0D877AD188}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D2F6EDA-36A8-42A6-AE49-5A0D877AD188}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D2F6EDA-36A8-42A6-AE49-5A0D877AD188}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

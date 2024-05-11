@@ -1,20 +1,22 @@
-﻿namespace Core
+﻿using System.Collections.Generic;
+
+namespace UWorx.DotNet
 {
-    class Person
+    public class Person
     {
-        public string? FirstName { get; }
-        public string? LastName { get; }
-        public int Age { get; } // Nullable<int>
+        public string? FirstName { get; } // nullable reference type
+        public string? LastName { get; } // nullable reference type
+        public int Age { get; } // We can have int? :: nullable value types
 
         public Person(string firstName, string lastName) =>
-          (FirstName, LastName) = (firstName, lastName); // too soon ?
+          (FirstName, LastName) = (firstName, lastName); // too soon ? value tuples syntax can be used normally
 
         public void DoSomething() { /* we want it blank */ }
     }
 
-    static class NullableHelper
+    public static class NullableHelper
     {
-        public static Person? MayBePerson() // return Person?
+        public static Person? MayBePerson() // return Person? (nullable reference type)
         {
             return null; // treat cs8603 warnings as well
         }
