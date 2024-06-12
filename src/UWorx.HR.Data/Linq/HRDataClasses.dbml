@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="HumanResources" Class="HRDataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=HumanResources;Integrated Security=True;Trust Server Certificate=True" SettingsObjectName="UWorx.HR.Data.Properties.Settings" SettingsPropertyName="HumanResourcesConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.EmployeeUsers" Member="EmployeeUsers">
+    <Type Name="EmployeeUser">
+      <Column Name="EmployeeIndex" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UserIndex" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="User">
+      <Column Name="UserIndex" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserEmail" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UserPassword" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HR_Departments" Member="HR_Departments">
+    <Type Name="HR_Department">
+      <Column Name="DepartmentIndex" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DepartmentName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="HR_Department_HR_Employee" Member="HR_Employees" ThisKey="DepartmentIndex" OtherKey="DepartmentIndex" Type="HR_Employee" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HR_Designations" Member="HR_Designations">
+    <Type Name="HR_Designation">
+      <Column Name="DesignationIndex" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DesignationName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="HR_Designation_HR_EmployeeDesignation" Member="HR_EmployeeDesignations" ThisKey="DesignationIndex" OtherKey="DesignationIndex" Type="HR_EmployeeDesignation" />
+      <Association Name="HR_Designation_HR_Employee" Member="HR_Employees" ThisKey="DesignationIndex" OtherKey="DesignationIndex" Type="HR_Employee" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HR_EmployeeDesignations" Member="HR_EmployeeDesignations">
+    <Type Name="HR_EmployeeDesignation">
+      <Column Name="EmployeeIndex" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DesignationIndex" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="HR_Designation_HR_EmployeeDesignation" Member="HR_Designation" ThisKey="DesignationIndex" OtherKey="DesignationIndex" Type="HR_Designation" IsForeignKey="true" />
+      <Association Name="HR_Employee_HR_EmployeeDesignation" Member="HR_Employee" ThisKey="EmployeeIndex" OtherKey="EmployeeIndex" Type="HR_Employee" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HR_EmployeeLeaves" Member="HR_EmployeeLeaves">
+    <Type Name="HR_EmployeeLeave">
+      <Column Name="EmployeeIndex" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LeaveTypeIndex" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LeaveDate" Type="System.DateTime" DbType="DateTime NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LeaveCount" Type="System.Decimal" DbType="Decimal(3,1) NOT NULL" CanBeNull="false" />
+      <Association Name="HR_Employee_HR_EmployeeLeave" Member="HR_Employee" ThisKey="EmployeeIndex" OtherKey="EmployeeIndex" Type="HR_Employee" IsForeignKey="true" />
+      <Association Name="HR_Leave_HR_EmployeeLeave" Member="HR_Leave" ThisKey="LeaveTypeIndex" OtherKey="LeaveTypeIndex" Type="HR_Leave" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HR_Employees" Member="HR_Employees">
+    <Type Name="HR_Employee">
+      <Column Name="EmployeeIndex" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DepartmentIndex" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DesignationIndex" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ManagerEmployeeIndex" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MiddleName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="HR_Employee_HR_EmployeeDesignation" Member="HR_EmployeeDesignations" ThisKey="EmployeeIndex" OtherKey="EmployeeIndex" Type="HR_EmployeeDesignation" />
+      <Association Name="HR_Employee_HR_EmployeeLeave" Member="HR_EmployeeLeaves" ThisKey="EmployeeIndex" OtherKey="EmployeeIndex" Type="HR_EmployeeLeave" />
+      <Association Name="HR_Employee_HR_Employee" Member="HR_Employees" ThisKey="EmployeeIndex" OtherKey="ManagerEmployeeIndex" Type="HR_Employee" />
+      <Association Name="HR_Employee_HR_EmployeeTeam" Member="HR_EmployeeTeams" ThisKey="EmployeeIndex" OtherKey="EmployeeIndex" Type="HR_EmployeeTeam" />
+      <Association Name="HR_Employee_HR_Team" Member="HR_Teams" ThisKey="EmployeeIndex" OtherKey="ManagerEmployeeIndex" Type="HR_Team" />
+      <Association Name="HR_Department_HR_Employee" Member="HR_Department" ThisKey="DepartmentIndex" OtherKey="DepartmentIndex" Type="HR_Department" IsForeignKey="true" />
+      <Association Name="HR_Designation_HR_Employee" Member="HR_Designation" ThisKey="DesignationIndex" OtherKey="DesignationIndex" Type="HR_Designation" IsForeignKey="true" />
+      <Association Name="HR_Employee_HR_Employee" Member="HR_Employee1" ThisKey="ManagerEmployeeIndex" OtherKey="EmployeeIndex" Type="HR_Employee" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HR_EmployeeTeams" Member="HR_EmployeeTeams">
+    <Type Name="HR_EmployeeTeam">
+      <Column Name="EmployeeIndex" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TeamIndex" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="HR_Employee_HR_EmployeeTeam" Member="HR_Employee" ThisKey="EmployeeIndex" OtherKey="EmployeeIndex" Type="HR_Employee" IsForeignKey="true" />
+      <Association Name="HR_Team_HR_EmployeeTeam" Member="HR_Team" ThisKey="TeamIndex" OtherKey="TeamIndex" Type="HR_Team" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HR_Leaves" Member="HR_Leaves">
+    <Type Name="HR_Leave">
+      <Column Name="LeaveTypeIndex" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LeaveType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="HR_Leave_HR_EmployeeLeave" Member="HR_EmployeeLeaves" ThisKey="LeaveTypeIndex" OtherKey="LeaveTypeIndex" Type="HR_EmployeeLeave" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HR_Teams" Member="HR_Teams">
+    <Type Name="HR_Team">
+      <Column Name="TeamIndex" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ManagerEmployeeIndex" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TeamName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="HR_Team_HR_EmployeeTeam" Member="HR_EmployeeTeams" ThisKey="TeamIndex" OtherKey="TeamIndex" Type="HR_EmployeeTeam" />
+      <Association Name="HR_Employee_HR_Team" Member="HR_Employee" ThisKey="ManagerEmployeeIndex" OtherKey="EmployeeIndex" Type="HR_Employee" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
