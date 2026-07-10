@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 18
+VisualStudioVersion = 18.5.11709.299
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestProjects", "TestProjects", "{F158BFB2-B5C4-4980-B589-297CDC26ACB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UWorx.WorkplaceIQ", "src\UWorx.WorkplaceIQ\UWorx.WorkplaceIQ.csproj", "{FE6DD8E9-F23C-496C-AF1F-422444F1A764}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkplaceIQTests", "src\TestProjects\WorkplaceIQTests\WorkplaceIQTests.csproj", "{384CE676-0EE5-453F-8E16-7E058AA725A4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FE6DD8E9-F23C-496C-AF1F-422444F1A764}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE6DD8E9-F23C-496C-AF1F-422444F1A764}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE6DD8E9-F23C-496C-AF1F-422444F1A764}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE6DD8E9-F23C-496C-AF1F-422444F1A764}.Release|Any CPU.Build.0 = Release|Any CPU
+		{384CE676-0EE5-453F-8E16-7E058AA725A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{384CE676-0EE5-453F-8E16-7E058AA725A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{384CE676-0EE5-453F-8E16-7E058AA725A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{384CE676-0EE5-453F-8E16-7E058AA725A4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{384CE676-0EE5-453F-8E16-7E058AA725A4} = {F158BFB2-B5C4-4980-B589-297CDC26ACB0}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3D1F4517-F265-410E-9B28-3D626C86C22C}
+	EndGlobalSection
+EndGlobal
