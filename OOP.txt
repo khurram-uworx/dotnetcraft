@@ -1,0 +1,16 @@
+Encapsulation
+	- Effective Java
+
+Generalization
+	- Create EventPost; looks and feels like SocialMediaPost
+
+Abstraction
+	- Association
+	- How test has strong "coupling"
+
+Specialization
+	But what's Cohesive?
+	- Back to Encpasulation with the problem of exposing whole chain
+
+Composition & back to Inheritance
+	- https://khurram-uworx.github.io/2026/05/06/Java6.html

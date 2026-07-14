@@ -9,6 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UWorx.WorkplaceIQ", "src\UW
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkplaceIQTests", "src\TestProjects\WorkplaceIQTests\WorkplaceIQTests.csproj", "{384CE676-0EE5-453F-8E16-7E058AA725A4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{59A93648-1043-4722-BCBE-7A5B925D463F}"
+	ProjectSection(SolutionItems) = preProject
+		OOP.txt = OOP.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

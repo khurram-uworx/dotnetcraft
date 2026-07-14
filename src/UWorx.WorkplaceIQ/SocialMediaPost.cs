@@ -1,57 +1,37 @@
-﻿namespace UWorx.WorkplaceIQ
+﻿namespace UWorx.WorkplaceIQ;
+
+public class SocialMediaPost : BaseContent
 {
-    public class SocialMediaPost
+    private static class Helper
     {
-        private static class Helper
-        {
-            public static void DoSomething()
-            { }
-
-            public static void DoSomething2()
-            { }
-
-            public static void DoSomething3()
-            { }
-        }
-
-        string platform;
-        string text;
-        List<string> labels;
-
-        private SocialMediaPost()
-        {
-
-        }
-
-        private SocialMediaPost(string platform, string text, string[] labels)
+        public static void DoSomething()
         { }
 
-        public static SocialMediaPost GetInstance(string platform, string text)
-        {
-            return new SocialMediaPost()
-                .UpdatePlatform(platform)
-                .UpdateText(text);
-        }
+        public static void DoSomething2()
+        { }
 
-        public SocialMediaPost UpdatePlatform(string platform)
-        {
-            this.platform = platform;
-            return this;
-        }
-
-        public SocialMediaPost UpdateText(string text)
-        {
-            this.text = text;
-            return this;
-        }
-
-        public SocialMediaPost UpdateLabels(string[] labels)
-        {
-            this.labels.AddRange(labels);
-            return this;
-        }
-
-        public void StoreIntoDb()
+        public static void DoSomething3()
         { }
     }
+
+
+    public static SocialMediaPost GetInstance(string platform, string text)
+    {
+        SocialMediaPost p = new SocialMediaPost();
+        p.UpdateName(platform);
+        p.UpdateDescription(text);
+        return p;
+    }
+
+    private SocialMediaPost()
+    { }
+
+    public SocialMediaPost UpdateLabels(string[] labels)
+    {
+        base.UpdateTags(labels);
+        return this;
+    }
+
+    public void StoreIntoDb()
+    { }
 }
